@@ -20,7 +20,7 @@
   "auctionMinRaise": 1000,
   "auctionBidCooldownSeconds": 10,
   "auctionCloseBeforeRefreshSeconds": 60,
-  "auctionAiEnabled": false,
-
-  "testGrantGold": 1000000
+  "auctionAiEnabled": true,
+  "auctionAiBudgetMin": 40000,
+  "auctionAiBudgetMax": 320000
 }

@@ -20,6 +20,7 @@ namespace SilverWandererMarket.Behaviors
         private string _auctionBlob = "";
         private long _refreshAtUtcTicks;
         private bool _loaded;
+        private float _probeAccum;
 
         public override void RegisterEvents()
         {
@@ -69,10 +70,13 @@ namespace SilverWandererMarket.Behaviors
 
         private void OnSessionLaunched(CampaignGameStarter starter)
         {
-            SWMLog.Info("SWMSession", "OnSessionLaunched authoritative=" + SWMMarketHooks.IsAuthoritative
+            SWMMarketHooks.ApplyDetectedSession();
+            SWMLog.Info("SWMSession", "OnSessionLaunched role=" + SWMMarketHooks.DetectedRole
+                + " locked=" + SWMMarketHooks.SessionLocked
+                + " authoritative=" + SWMMarketHooks.IsAuthoritative
                 + " generate=" + SWMMarketHooks.AllowLocalGeneration
-                + " brokers=" + SWMMarketHooks.AllowBrokerSpawn
-                + " testGold=" + SWMMarketHooks.AllowTestGold);
+                + " ai=" + SWMMarketHooks.EnableSimulatedAiBidders
+                + " brokers=" + SWMMarketHooks.AllowBrokerSpawn);
             MarketState state = MarketState.Ensure();
             state.Config = MarketConfig.Load();
             if (SWMAuctionHooks.AllowLocalGeneration)
@@ -88,7 +92,6 @@ namespace SilverWandererMarket.Behaviors
             HiredWandererDialog.AddDialogs(starter);
             BrokerHeroService.EnsureAllTowns();
             HiredWanderer.MarkAllMet();
-            TryGrantTestGold(state.Config);
         }
 
         private void OnConversationEnded(IEnumerable<CharacterObject> characters)
@@ -99,24 +102,6 @@ namespace SilverWandererMarket.Behaviors
         private void OnTick(float dt)
         {
             HiredWanderer.FlushPendingRemovals();
-        }
-
-        private static void TryGrantTestGold(MarketConfig cfg)
-        {
-            if (!SWMAuctionHooks.IsAuthoritative || !SWMMarketHooks.AllowTestGold)
-                return;
-            if (cfg == null || cfg.TestGrantGold <= 0)
-                return;
-            Hero hero = SWMMarketHooks.LocalHero();
-            if (hero == null)
-                return;
-            int have = hero.Gold;
-            if (have >= cfg.TestGrantGold)
-                return;
-            int add = cfg.TestGrantGold - have;
-            hero.ChangeHeroGold(add);
-            SWMLog.Info("SWMSession", "Test gold granted +" + add + " now=" + cfg.TestGrantGold);
-            InformationManagerDisplay("SWM test gold: +" + add.ToString("N0") + " (now " + cfg.TestGrantGold.ToString("N0") + "). Set testGrantGold to 0 in market-config.json when done.");
         }
 
         private void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)
@@ -152,6 +137,15 @@ namespace SilverWandererMarket.Behaviors
             MarketState state = MarketState.Ensure();
             if (Campaign.Current == null)
                 return;
+            if (!SWMMarketHooks.SessionLocked && SWMMarketHooks.DetectedRole == "sp")
+            {
+                _probeAccum += dt;
+                if (_probeAccum >= 2f)
+                {
+                    _probeAccum = 0f;
+                    SWMMarketHooks.ApplyDetectedSession();
+                }
+            }
             if (SWMAuctionHooks.IsAuthoritative)
             {
                 AuctionService.Tick(state);

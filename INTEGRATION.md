@@ -5,7 +5,9 @@ This module is a Bannerlord campaign wanderer shop: a shared **slate** (buy now)
 **Host** is the only machine that mutates stock, gold escrow, bids, and hires.  
 **Clients** send a request, then apply the host snapshot. They never generate lots or tick the auction.
 
-NPC fake bidders are off. Auction gold is taken on bid and returned on outbid. A win keeps the stake (no second charge at hire). A slate buy takes gold immediately.
+NPC fake bidders auto-run in singleplayer only. Coop host/clients keep them off so real players contest the lot. Auction gold is taken on bid and returned on outbid. A win keeps the stake (no second charge at hire). A slate buy takes gold immediately.
+
+SWM auto-detects SP vs coop/MP (`GameNetwork` + Coop/Hex reflection, including Coop Realm). Host still generates the wanderer slate; clients do not. Call `SWMMarketHooks.LockSession(authoritative, allowLocalGeneration)` if a pack must pin flags. `EnableSimulatedAiBidders` follows the detected role unless the session is locked.
 
 All public types are prefixed `SWM`. Logs start with `[SilverWandererMarket]`. Event ids start with `swm.` so they do not collide with other auctions on the same server.
 
@@ -19,7 +21,6 @@ All public types are prefixed `SWM`. Logs start with `[SilverWandererMarket]`. E
 SWMMarketHooks.IsAuthoritative = true;
 SWMMarketHooks.AllowLocalGeneration = true;
 SWMMarketHooks.EnableSimulatedAiBidders = false;
-SWMMarketHooks.AllowTestGold = false;
 SWMMarketHooks.AllowBrokerSpawn = true;
 
 SWMMarketHooks.GetLocalPlayerHero = () => HostPlayerHero;
@@ -47,7 +48,6 @@ SWMAuctionHooks.Changed += e =>
 ```csharp
 SWMMarketHooks.IsAuthoritative = false;
 SWMMarketHooks.AllowLocalGeneration = false;
-SWMMarketHooks.AllowTestGold = false;
 SWMMarketHooks.AllowBrokerSpawn = true; // still spawn the tavern NPC locally
 
 SWMMarketHooks.GetLocalPlayerHero = () => ThisClientHero;

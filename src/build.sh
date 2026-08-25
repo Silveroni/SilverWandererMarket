@@ -28,6 +28,7 @@ dotnet exec "$CSC" -nologo -t:library -langversion:10 -nostdlib \
   -r:"$BIN/TaleWorlds.ObjectSystem.dll" \
   -out:"$OUT/SilverWandererMarket.dll" \
   "$DIR/SWMSubModule.cs" \
+  "$DIR/SWMLog.cs" \
   "$DIR/Behaviors/WandererMarketCampaignBehavior.cs" \
   "$DIR/Market/MarketConfig.cs" \
   "$DIR/Market/WandererOffer.cs" \
@@ -37,7 +38,14 @@ dotnet exec "$CSC" -nologo -t:library -langversion:10 -nostdlib \
   "$DIR/Market/PriceCalculator.cs" \
   "$DIR/Market/OfferGenerator.cs" \
   "$DIR/Market/AuctionState.cs" \
+  "$DIR/Market/AuctionAi.cs" \
   "$DIR/Market/MarketState.cs" \
+  "$DIR/Market/SWMAuctionApi.cs" \
+  "$DIR/Market/SWMAuctionEscrow.cs" \
+  "$DIR/Market/SWMAuctionHooks.cs" \
+  "$DIR/Market/SWMMarketApi.cs" \
+  "$DIR/Market/SWMMarketHooks.cs" \
+  "$DIR/Market/SessionProbe.cs" \
   "$DIR/Spawn/TavernBrokerSpawner.cs" \
   "$DIR/Spawn/BrokerHeroService.cs" \
   "$DIR/Spawn/SWMHeroAgentLocationModel.cs" \

@@ -218,6 +218,7 @@ namespace SilverWandererMarket.Market
 
         public static void RequestOpen()
         {
+            SWMMarketHooks.ApplyDetectedSession();
             if (SWMMarketHooks.TryOpenMarket != null && SWMMarketHooks.TryOpenMarket())
             {
                 SWMLog.Info("SWMMarket", "RequestOpen handled by custom TryOpenMarket");

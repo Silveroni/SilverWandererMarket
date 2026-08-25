@@ -27,10 +27,12 @@ namespace SilverWandererMarket.Market
         public int AuctionMinRaise = 1000;
         public int AuctionBidCooldownSeconds = 10;
         public int AuctionCloseBeforeRefreshSeconds = 60;
-        /// <summary>NPC rival bids. Off by default — coop host should keep this false.</summary>
-        public bool AuctionAiEnabled = false;
-        /// <summary>If &gt; 0 and player gold is below this, top up to this amount on session launch (testing).</summary>
-        public int TestGrantGold = 0;
+        /// <summary>NPC rival bids in SP. Coop auto-detect forces this off regardless.</summary>
+        public bool AuctionAiEnabled = true;
+        /// <summary>Lowest an NPC will spend on a lot.</summary>
+        public int AuctionAiBudgetMin = 40000;
+        /// <summary>Highest an NPC will spend on a lot.</summary>
+        public int AuctionAiBudgetMax = 320000;
 
         public static MarketConfig Load()
         {
@@ -63,7 +65,8 @@ namespace SilverWandererMarket.Market
                 string aiFlag;
                 if (map.TryGetValue("auctionAiEnabled", out aiFlag))
                     cfg.AuctionAiEnabled = aiFlag == "1" || string.Equals(aiFlag, "true", System.StringComparison.OrdinalIgnoreCase);
-                cfg.TestGrantGold = FlatJson.Int(map, "testGrantGold", cfg.TestGrantGold);
+                cfg.AuctionAiBudgetMin = FlatJson.Int(map, "auctionAiBudgetMin", cfg.AuctionAiBudgetMin);
+                cfg.AuctionAiBudgetMax = FlatJson.Int(map, "auctionAiBudgetMax", cfg.AuctionAiBudgetMax);
             }
             catch
             {
@@ -94,6 +97,10 @@ namespace SilverWandererMarket.Market
                 cfg.PriceTop = cfg.PriceFloor * 2;
             if (cfg.AuctionTopSkillMax < cfg.AuctionTopSkillMin)
                 cfg.AuctionTopSkillMax = cfg.AuctionTopSkillMin;
+            if (cfg.AuctionAiBudgetMin < cfg.AuctionMinBid)
+                cfg.AuctionAiBudgetMin = cfg.AuctionMinBid;
+            if (cfg.AuctionAiBudgetMax < cfg.AuctionAiBudgetMin)
+                cfg.AuctionAiBudgetMax = cfg.AuctionAiBudgetMin;
             return cfg;
         }
     }

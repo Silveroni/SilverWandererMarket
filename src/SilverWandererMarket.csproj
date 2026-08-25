@@ -25,6 +25,10 @@
       <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="TaleWorlds.Core.ViewModelCollection">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Core.ViewModelCollection.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="TaleWorlds.Engine">
       <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Engine.dll</HintPath>
       <Private>false</Private>

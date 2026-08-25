@@ -27,6 +27,7 @@ namespace SilverWandererMarket
             campaignStarter.AddModel(new SWMHeroAgentLocationModel());
             _behavior = new WandererMarketCampaignBehavior();
             campaignStarter.AddBehavior(_behavior);
+            Market.SWMMarketHooks.ApplyDetectedSession();
         }
 
         public override void OnGameEnd(Game game)
@@ -34,6 +35,7 @@ namespace SilverWandererMarket
             UI.SWMMarketScreen.Close();
             Market.MarketState.Current = null;
             _behavior = null;
+            Market.SWMMarketHooks.ResetSessionFlags();
             base.OnGameEnd(game);
         }
 

@@ -42,14 +42,80 @@ namespace SilverWandererMarket.Market
         /// <summary>Host / SP generates stock and lots. Clients unpack snapshots instead.</summary>
         public static bool AllowLocalGeneration = true;
 
-        /// <summary>NPC auction rivals. Stripped — leave false.</summary>
+        /// <summary>When true, <see cref="ApplyDetectedSession"/> will not overwrite flags.</summary>
+        public static bool SessionLocked;
+        /// <summary>Last applied role: sp, host, or client.</summary>
+        public static string DetectedRole = "sp";
+
+        static string _stickyRole = "sp";
+
+        /// <summary>Pack override. Stops auto-detect for this campaign.</summary>
+        public static void LockSession(bool authoritative, bool allowLocalGeneration)
+        {
+            IsAuthoritative = authoritative;
+            AllowLocalGeneration = allowLocalGeneration;
+            SessionLocked = true;
+            DetectedRole = "locked";
+            SWMLog.Info("SWMSession", "LockSession authoritative=" + IsAuthoritative
+                + " generate=" + AllowLocalGeneration);
+        }
+
+        public static void ApplyDetectedSession()
+        {
+            if (SessionLocked)
+                return;
+
+            SessionSnapshot snap = SessionProbe.Detect();
+            if (_stickyRole != "sp" && snap.Role == "sp")
+                snap = SessionSnapshot.Of(_stickyRole, "sticky");
+            else if (snap.Role != "sp")
+                _stickyRole = snap.Role;
+
+            bool auth = snap.Role != "client";
+            // Host still generates the wanderer slate. Clients never do.
+            bool gen = snap.Role != "client";
+            // NPC rivals are SP-only. Coop host/clients leave the lot for real players.
+            bool ai = snap.Role == "sp";
+
+            bool changed = DetectedRole != snap.Role
+                || IsAuthoritative != auth
+                || AllowLocalGeneration != gen
+                || EnableSimulatedAiBidders != ai;
+            DetectedRole = snap.Role;
+            IsAuthoritative = auth;
+            AllowLocalGeneration = gen;
+            EnableSimulatedAiBidders = ai;
+
+            if (changed)
+            {
+                SWMLog.Info("SWMSession", "auto-detect role=" + snap.Role + " source=" + snap.Source
+                    + " authoritative=" + IsAuthoritative + " generate=" + AllowLocalGeneration
+                    + " ai=" + EnableSimulatedAiBidders
+                    + " brokers=" + AllowBrokerSpawn);
+            }
+        }
+
+        internal static void ResetSessionFlags()
+        {
+            SessionLocked = false;
+            _stickyRole = "sp";
+            DetectedRole = "sp";
+            IsAuthoritative = true;
+            AllowLocalGeneration = true;
+            EnableSimulatedAiBidders = false;
+        }
+
+        /// <summary>True when auto-detect last applied <c>sp</c>. Coop host/client: false.</summary>
+        public static bool IsSinglePlayerSession
+        {
+            get { return DetectedRole == "sp"; }
+        }
+
+        /// <summary>NPC auction rivals. Auto-on in SP, auto-off in coop. Config can still disable.</summary>
         public static bool EnableSimulatedAiBidders = false;
 
         /// <summary>Tavern broker spawn. Leave true so each client can talk to the broker locally.</summary>
         public static bool AllowBrokerSpawn = true;
-
-        /// <summary>Session test gold top-up. Coop: set false.</summary>
-        public static bool AllowTestGold = true;
 
         /// <summary>rgl/console + swm_debug.log. Alias of <see cref="SWMLog.ConsoleEnabled"/> / FileEnabled.</summary>
         public static bool EnableDebugLog

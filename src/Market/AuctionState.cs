@@ -230,6 +230,7 @@ namespace SilverWandererMarket.Market
 
             SWMAuctionHooks.Raise(SWMAuctionHookKind.LotStarted, state.Auction, "", "", 0, "", null);
             SWMLog.Info("SWMAuction", "StartNew lot=" + (state.Auction.Lot != null ? state.Auction.Lot.DisplayName : "none"));
+            AuctionAi.OnLotStarted(state);
             MarketState.Notify();
         }
 
@@ -262,6 +263,8 @@ namespace SilverWandererMarket.Market
                     SWMAuctionHooks.Raise(SWMAuctionHookKind.AuctionClosed, state.Auction, "", "", 0, "", null);
                     MarketState.Notify();
                 }
+                else
+                    AuctionAi.Tick(state);
             }
 
             if (state.Auction.Closed && !state.Auction.Settled)
@@ -386,6 +389,8 @@ namespace SilverWandererMarket.Market
 
             a.AddLog((bidderName ?? "A bidder") + " bids " + amount.ToString("N0") + " denars!");
             SWMAuctionHooks.Raise(SWMAuctionHookKind.BidPlaced, a, bidderKey, bidderName, amount, "", null);
+            if (!ai)
+                AuctionAi.OnPlayerBid(state);
             MarketState.Notify();
             return "Bid placed: " + amount.ToString("N0");
         }
