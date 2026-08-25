@@ -1,0 +1,26 @@
+{
+  "stockSize": 20,
+  "refreshSeconds": 3600,
+  "specialistMin": 2,
+  "specialistMax": 4,
+  "maxPerRole": 3,
+
+  "qualityCurve": 2.2,
+  "skillCap": 330,
+
+  "priceFloor": 1500,
+  "priceTop": 1500000,
+  "priceCurve": 1.45,
+  "priceVariance": 0.25,
+  "specialistMultiplier": 1.2,
+
+  "auctionTopSkillMin": 290,
+  "auctionTopSkillMax": 320,
+  "auctionMinBid": 1000,
+  "auctionMinRaise": 1000,
+  "auctionBidCooldownSeconds": 10,
+  "auctionCloseBeforeRefreshSeconds": 60,
+  "auctionAiEnabled": false,
+
+  "testGrantGold": 1000000
+}

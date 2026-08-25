@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NPCCharacters>
+  <!-- Culture templates used only as HeroCreator seeds. Skills/names overwritten at purchase. -->
+  <NPCCharacter id="swm_template_empire" name="{=swm_tpl_emp}Empire Wanderer" voice="softspoken" age="32" default_group="Infantry" is_template="true" is_hero="false" culture="Culture.empire" occupation="Special">
+    <face><face_key_template value="BodyProperty.townsman_empire" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_empire" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_empire" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_empire_f" name="{=swm_tpl_empf}Empire Wanderer" voice="softspoken" age="32" default_group="Infantry" is_template="true" is_hero="false" is_female="true" culture="Culture.empire" occupation="Special">
+    <face><face_key_template value="BodyProperty.townswoman_empire" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_empire" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_empire" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_vlandia" name="{=swm_tpl_vla}Vlandia Wanderer" voice="earnest" age="32" default_group="Infantry" is_template="true" is_hero="false" culture="Culture.vlandia" occupation="Special">
+    <face><face_key_template value="BodyProperty.townsman_vlandia" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_vlandia" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_vlandia" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_vlandia_f" name="{=swm_tpl_vlaf}Vlandia Wanderer" voice="earnest" age="32" default_group="Infantry" is_template="true" is_hero="false" is_female="true" culture="Culture.vlandia" occupation="Special">
+    <face><face_key_template value="BodyProperty.townswoman_vlandia" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_vlandia" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_vlandia" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_sturgia" name="{=swm_tpl_stu}Sturgia Wanderer" voice="curt" age="32" default_group="Infantry" is_template="true" is_hero="false" culture="Culture.sturgia" occupation="Special">
+    <face><face_key_template value="BodyProperty.townsman_sturgia" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_sturgia" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_sturgia" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_sturgia_f" name="{=swm_tpl_stuf}Sturgia Wanderer" voice="curt" age="32" default_group="Infantry" is_template="true" is_hero="false" is_female="true" culture="Culture.sturgia" occupation="Special">
+    <face><face_key_template value="BodyProperty.townswoman_sturgia" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_sturgia" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_sturgia" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_battania" name="{=swm_tpl_bat}Battania Wanderer" voice="ironic" age="32" default_group="Infantry" is_template="true" is_hero="false" culture="Culture.battania" occupation="Special">
+    <face><face_key_template value="BodyProperty.townsman_battania" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_battania" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_battania" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_battania_f" name="{=swm_tpl_batf}Battania Wanderer" voice="ironic" age="32" default_group="Infantry" is_template="true" is_hero="false" is_female="true" culture="Culture.battania" occupation="Special">
+    <face><face_key_template value="BodyProperty.townswoman_battania" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_battania" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_battania" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_khuzait" name="{=swm_tpl_khu}Khuzait Wanderer" voice="softspoken" age="32" default_group="Infantry" is_template="true" is_hero="false" culture="Culture.khuzait" occupation="Special">
+    <face><face_key_template value="BodyProperty.townsman_khuzait" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_khuzait" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_khuzait" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_khuzait_f" name="{=swm_tpl_khuf}Khuzait Wanderer" voice="softspoken" age="32" default_group="Infantry" is_template="true" is_hero="false" is_female="true" culture="Culture.khuzait" occupation="Special">
+    <face><face_key_template value="BodyProperty.townswoman_khuzait" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_khuzait" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_khuzait" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_aserai" name="{=swm_tpl_ase}Aserai Wanderer" voice="earnest" age="32" default_group="Infantry" is_template="true" is_hero="false" culture="Culture.aserai" occupation="Special">
+    <face><face_key_template value="BodyProperty.townsman_aserai" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_aserai" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_aserai" />
+    </Equipments>
+  </NPCCharacter>
+  <NPCCharacter id="swm_template_aserai_f" name="{=swm_tpl_asef}Aserai Wanderer" voice="earnest" age="32" default_group="Infantry" is_template="true" is_hero="false" is_female="true" culture="Culture.aserai" occupation="Special">
+    <face><face_key_template value="BodyProperty.townswoman_aserai" /></face>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_aserai" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_aserai" />
+    </Equipments>
+  </NPCCharacter>
+</NPCCharacters>

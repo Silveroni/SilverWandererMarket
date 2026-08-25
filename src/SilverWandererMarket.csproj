@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <Nullable>disable</Nullable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>$(MSBuildThisFileDirectory)../bin/Win64_Shipping_Client/</OutputPath>
+    <RootNamespace>SilverWandererMarket</RootNamespace>
+    <AssemblyName>SilverWandererMarket</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="TaleWorlds.DotNet">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.DotNet.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.Library">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Library.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.Localization">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Localization.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.Core">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.Engine">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Engine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.Engine.GauntletUI">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.Engine.GauntletUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.GauntletUI">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.GauntletUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.InputSystem">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.InputSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.ScreenSystem">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.ScreenSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.MountAndBlade">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.MountAndBlade.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.CampaignSystem">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.CampaignSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.ObjectSystem">
+      <HintPath>$(MSBuildThisFileDirectory)../../../bin/Win64_Shipping_Client/TaleWorlds.ObjectSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

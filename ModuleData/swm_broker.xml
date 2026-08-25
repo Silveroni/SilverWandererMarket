@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NPCCharacters>
+  <NPCCharacter
+    id="swm_wanderer_broker"
+    name="{=swm_broker_name}Wanderer Broker"
+    age="48"
+    voice="softspoken"
+    level="26"
+    is_template="true"
+    is_hero="false"
+    is_hidden_encyclopedia="true"
+    default_group="Infantry"
+    culture="Culture.empire"
+    occupation="Special">
+    <face>
+      <face_key_template value="BodyProperty.townsman_empire" />
+    </face>
+    <skills>
+      <skill id="Charm" value="80" />
+      <skill id="Trade" value="120" />
+      <skill id="Steward" value="60" />
+    </skills>
+    <Traits>
+      <Trait id="Calculating" value="1" />
+    </Traits>
+    <Equipments>
+      <EquipmentSet id="npc_companion_equipment_template_empire" equipmentType="Civilian" />
+      <EquipmentSet id="npc_companion_equipment_template_empire" />
+    </Equipments>
+  </NPCCharacter>
+</NPCCharacters>

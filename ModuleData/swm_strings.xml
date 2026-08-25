@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<strings>
+  <string id="swm_broker_name" text="Wanderer Broker" />
+  <string id="swm_broker_greeting" text="Coin finds steel, and steel finds work. I keep twenty wanderers on the slate, the same names in every town." />
+  <string id="swm_broker_about" text="About your wanderer slate..." />
+  <string id="swm_broker_browse" text="Show me the slate." />
+  <string id="swm_broker_how" text="How does this work?" />
+  <string id="swm_broker_how_text" text="Twenty names. Refreshes every hour. Pay the purse, they join your party. Sold ones don't return." />
+  <string id="swm_broker_price" text="What do they cost?" />
+  <string id="swm_broker_price_text" text="Cheap hands for cheap coin. Rare talent costs a fortune. The slate shows the price." />
+  <string id="swm_broker_open_ack" text="Aye. Pick carefully. Once they're bought, they're gone from the slate." />
+  <string id="swm_broker_leave" text="Another time." />
+  <string id="swm_hired_no_backstory" text="My past is my own business. I am here to work, and I will do it well." />
+  <string id="swm_hired_dismiss" text="Your service ends here. Take what you have earned and go." />
+  <string id="swm_hired_dismiss_reply" text="As you say. I will trouble you no further." />
+</strings>

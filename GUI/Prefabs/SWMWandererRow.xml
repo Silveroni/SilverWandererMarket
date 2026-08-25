@@ -1,0 +1,21 @@
+<Prefab>
+  <Window>
+    <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="68" MarginBottom="3" Brush="Party.UpgradePopup.TroopTupple">
+      <Children>
+        <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="10" StackLayout.LayoutMethod="HorizontalLeftToRight">
+          <Children>
+            <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" StackLayout.LayoutMethod="VerticalTopToBottom">
+              <Children>
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="28" MarginTop="8" Text="@NameText" Brush="Party.UpgradePopup.Tuple.Text" Brush.FontSize="17" Color="#FFE3A9FF" />
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="18" Text="@MetaText" Brush="Party.UpgradePopup.Dent.Text" Brush.FontSize="13" Color="#A89878FF" />
+              </Children>
+            </ListPanel>
+            <TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="120" Text="@RoleText" Brush="Party.UpgradePopup.Dent.Text" Brush.FontSize="15" Color="#D6BA82FF" Brush.TextHorizontalAlignment="Center" Brush.TextVerticalAlignment="Center" />
+            <TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="200" Text="@TopSkillsText" Brush="Party.UpgradePopup.Dent.Text" Brush.FontSize="13" Color="#CBB88FFF" Brush.TextHorizontalAlignment="Center" Brush.TextVerticalAlignment="Center" />
+            <TextWidget WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="120" Text="@PriceText" Brush="Party.UpgradePopup.Tuple.Text" Brush.FontSize="15" Color="#E0C46DFF" Brush.TextHorizontalAlignment="Center" Brush.TextVerticalAlignment="Center" />
+          </Children>
+        </ListPanel>
+      </Children>
+    </BrushWidget>
+  </Window>
+</Prefab>

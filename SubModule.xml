@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+  <Name value="Silver Wanderer Market" />
+  <Id value="SilverWandererMarket" />
+  <Version value="v0.1.0" />
+  <DefaultModule value="false" />
+  <ModuleCategory value="Singleplayer" />
+  <SingleplayerModule value="true" />
+  <MultiplayerModule value="false" />
+  <DependedModules>
+    <DependedModule Id="Native" DependentVersion="v1.4.8" Optional="false" />
+    <DependedModule Id="SandBoxCore" DependentVersion="v1.4.8" Optional="false" />
+    <DependedModule Id="Sandbox" DependentVersion="v1.4.8" Optional="false" />
+    <DependedModule Id="StoryMode" DependentVersion="v1.4.8" Optional="true" />
+  </DependedModules>
+  <SubModules>
+    <SubModule>
+      <Name value="Silver Wanderer Market" />
+      <DLLName value="SilverWandererMarket.dll" />
+      <SubModuleClassType value="SilverWandererMarket.SWMSubModule" />
+      <Tags>
+        <Tag key="DedicatedServerType" value="none" />
+        <Tag key="IsNoRenderModeElement" value="false" />
+      </Tags>
+    </SubModule>
+  </SubModules>
+  <Xmls>
+    <XmlNode>
+      <XmlName id="NPCCharacters" path="swm_broker" />
+      <IncludedGameTypes>
+        <GameType value="Campaign" />
+        <GameType value="CampaignStoryMode" />
+      </IncludedGameTypes>
+    </XmlNode>
+    <XmlNode>
+      <XmlName id="NPCCharacters" path="swm_wanderer_templates" />
+      <IncludedGameTypes>
+        <GameType value="Campaign" />
+        <GameType value="CampaignStoryMode" />
+      </IncludedGameTypes>
+    </XmlNode>
+    <XmlNode>
+      <XmlName id="GameText" path="swm_strings" />
+      <IncludedGameTypes>
+        <GameType value="Campaign" />
+        <GameType value="CampaignStoryMode" />
+      </IncludedGameTypes>
+    </XmlNode>
+  </Xmls>
+</Module>

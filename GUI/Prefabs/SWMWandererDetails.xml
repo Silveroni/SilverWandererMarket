@@ -1,0 +1,20 @@
+<Prefab>
+  <Window>
+    <BrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="760" SuggestedHeight="720" HorizontalAlignment="Center" VerticalAlignment="Center" Brush="Party.UpgradePopup.Frame">
+      <Children>
+        <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="40" MarginRight="40" MarginTop="40" MarginBottom="36" Brush="Party.UpgradePopup.Dent">
+          <Children>
+            <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="28" MarginRight="28" MarginTop="18" MarginBottom="18" StackLayout.LayoutMethod="VerticalTopToBottom">
+              <Children>
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="36" Text="@DetailsName" Brush="Party.UpgradePopup.Tuple.Text" Brush.FontSize="26" Color="#FFE3A9FF" Brush.TextHorizontalAlignment="Center" />
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="24" Text="@DetailsRole" Brush="Party.UpgradePopup.Dent.Text" Brush.FontSize="18" Color="#D6BA82FF" Brush.TextHorizontalAlignment="Center" />
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="24" Text="@DetailsMeta" Brush="Party.UpgradePopup.Dent.Text" Brush.FontSize="15" Color="#A89878FF" Brush.TextHorizontalAlignment="Center" />
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="10" Text="@DetailsSkills" Brush="Party.UpgradePopup.Dent.Text" Brush.FontSize="16" Color="#E8D7B0FF" />
+              </Children>
+            </ListPanel>
+          </Children>
+        </BrushWidget>
+      </Children>
+    </BrushWidget>
+  </Window>
+</Prefab>

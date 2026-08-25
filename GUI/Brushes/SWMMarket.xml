@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Brushes>
+  <!--
+    Same nine-grid as the vanilla tournament control button, but the vanilla brush drives its
+    Default layer at ColorFactor 1.8 and its Hovered layer at 2.5, which pushes the sprite to a
+    very hot orange. These factors keep the shape and read as warm bronze instead.
+  -->
+  <Brush Name="SWM.ActionButton" FontColor="#FAF4DEFF">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="bottom_button_9" Color="#FFFFFFFF" AlphaFactor="0.8" />
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" ColorFactor="1.05" />
+      </Style>
+      <Style Name="Hovered">
+        <BrushLayer Name="Default" ColorFactor="1.4" />
+      </Style>
+      <Style Name="Pressed">
+        <BrushLayer Name="Default" ColorFactor="0.8" />
+      </Style>
+      <Style Name="Disabled">
+        <BrushLayer Name="Default" ColorFactor="0.35" AlphaFactor="0.5" />
+      </Style>
+      <Style Name="Selected">
+        <BrushLayer Name="Default" ColorFactor="1.05" />
+      </Style>
+    </Styles>
+  </Brush>
+
+  <Brush Name="SWM.ActionButton.Text">
+    <Layers>
+    </Layers>
+    <Styles>
+      <Style Name="Default" FontColor="#F4E9CDFF" TextGlowColor="#000000FF" FontSize="24" />
+      <Style Name="Disabled" FontColor="#928E80FF" />
+    </Styles>
+  </Brush>
+
+  <!-- Same gold as High Bid, sitting after the coin on a Panel.Dent plate. -->
+  <Brush Name="SWM.BidInput.Text" Font="FiraSansExtraCondensed-Regular" TextHorizontalAlignment="Left" TextVerticalAlignment="Center">
+    <Styles>
+      <Style Name="Default" FontColor="#E0C46DFF" TextGlowColor="#00000000" TextOutlineColor="#00000000" TextOutlineAmount="0" TextGlowRadius="0" TextBlur="0" FontSize="18" />
+      <Style Name="Hovered" FontColor="#F4E1C4FF" FontSize="18" />
+      <Style Name="Pressed" FontColor="#FFF3D0FF" FontSize="18" />
+      <Style Name="Selected" FontColor="#FFF3D0FF" FontSize="18" />
+      <Style Name="Disabled" FontColor="#928E80FF" FontSize="18" />
+    </Styles>
+  </Brush>
+</Brushes>
